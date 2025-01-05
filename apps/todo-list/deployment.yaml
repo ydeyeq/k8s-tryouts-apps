@@ -59,3 +59,11 @@ spec:
             name: todo-list
             port:
               number: 80
+
+      - path: /assets/
+        pathType: Prefix
+        backend:
+          service:
+            name: todo-list
+            port:
+                number: 80
