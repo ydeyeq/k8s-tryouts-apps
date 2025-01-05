@@ -7,8 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: 188.166.136.185
-    http:
+  - http:
       paths:
       - path: /todo-list
         pathType: Prefix
