@@ -46,7 +46,7 @@ kind: Ingress
 metadata:
   name: todo-list-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: / # Global rewrite rule applies to all paths unless overridden
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
@@ -59,12 +59,24 @@ spec:
             name: todo-list
             port:
               number: 80
-      - path: /assets/
+
+
+---
+
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: todo-list-assets-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /assets
         pathType: Prefix
         backend:
           service:
             name: todo-list
             port:
               number: 80
-        annotations:
-          nginx.ingress.kubernetes.io/rewrite-target: /assets/
