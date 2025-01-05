@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ingress-nginx
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://kubernetes.github.io/ingress-nginx  # Helm chart repo
+    chart: ingress-nginx
+    targetRevision: 4.12.0  # Chart version (check for latest version)
+    helm:
+      values: |
+        controller:
+          service:
+            type: LoadBalancer  # Use LoadBalancer for external access
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ingress-nginx
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
