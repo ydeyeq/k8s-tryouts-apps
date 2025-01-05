@@ -4,13 +4,13 @@ metadata:
   name: unified-ingress
   namespace: default
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   ingressClassName: nginx
   rules:
   - http:
       paths:
-      - path: /todo-list
+      - path: /todo-list(/|$)(.*)
         pathType: Prefix
         backend:
           service:
