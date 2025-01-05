@@ -27,7 +27,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: node-app
+  name: node-app-lb
   namespace: default
 spec:
   selector:
