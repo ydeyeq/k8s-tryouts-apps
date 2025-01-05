@@ -46,27 +46,25 @@ kind: Ingress
 metadata:
   name: todo-list-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: / # Global rewrite rule
-    nginx.ingress.kubernetes.io/use-regex: "true" # Enable regex-based path handling
+    nginx.ingress.kubernetes.io/rewrite-target: / # Global rewrite rule applies to all paths unless overridden
 spec:
   ingressClassName: nginx
   rules:
   - http:
       paths:
-      - path: ^/todo-list(/|$)(.*)
-        pathType: ImplementationSpecific
+      - path: /todo-list
+        pathType: Prefix
         backend:
           service:
             name: todo-list
             port:
               number: 80
-      - path: ^/assets(/|$)(.*)
-        pathType: ImplementationSpecific
+      - path: /assets/
+        pathType: Prefix
         backend:
           service:
             name: todo-list
             port:
               number: 80
-        # Add an explicit rewrite-target annotation for assets
         annotations:
-          nginx.ingress.kubernetes.io/rewrite-target: /assets/$2
+          nginx.ingress.kubernetes.io/rewrite-target: /assets/
