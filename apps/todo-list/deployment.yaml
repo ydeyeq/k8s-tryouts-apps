@@ -25,7 +25,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: todo-list-lb
+  name: todo-list
   namespace: default
 spec:
   selector:
@@ -34,4 +34,3 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 3000
-  type: LoadBalancer

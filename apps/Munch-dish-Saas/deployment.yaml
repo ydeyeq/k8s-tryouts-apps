@@ -27,7 +27,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: node-app-lb
+  name: node-app
   namespace: default
 spec:
   selector:
@@ -36,4 +36,3 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 3000
-  type: LoadBalancer
