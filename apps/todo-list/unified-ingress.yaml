@@ -5,6 +5,8 @@ metadata:
   namespace: default
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      rewrite ^/todo-list/(.*) /$1 break;  
 spec:
   ingressClassName: nginx
   rules:
