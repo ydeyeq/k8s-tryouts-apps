@@ -61,29 +61,29 @@ spec:
               number: 80
 
 
----
+# ---
 
 
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: assets-api-ingress
-spec:
-  ingressClassName: nginx
-  rules:
-  - http:
-      paths:
-      - path: /assets
-        pathType: Prefix
-        backend:
-          service:
-            name: todo-list
-            port:
-              number: 80
-      - path: /api
-        pathType: Prefix
-        backend:
-          service:
-            name: todo-list
-            port:
-              number: 80
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: assets-api-ingress
+# spec:
+#   ingressClassName: nginx
+#   rules:
+#   - http:
+#       paths:
+#       - path: /assets
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: todo-list
+#             port:
+#               number: 80
+#       - path: /api
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: todo-list
+#             port:
+#               number: 80
