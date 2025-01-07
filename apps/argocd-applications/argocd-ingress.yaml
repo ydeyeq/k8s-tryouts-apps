@@ -3,14 +3,14 @@ kind: Ingress
 metadata:
   name: argocd-ingress
   namespace: argocd
-#  annotations:
-#    nginx.ingress.kubernetes.io/rewrite-target: /
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
   - http:
       paths:
-      - path: /
+      - path: /argocd
         pathType: Prefix
         backend:
           service:
@@ -19,20 +19,30 @@ spec:
               number: 80
 
 
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: argocd-assets-ingress
-#   namespace: argocd
-# spec:
-#   ingressClassName: nginx
-#   rules:
-#   - http:
-#       paths:
-#       - path: /assets
-#         pathType: Prefix
-#         backend:
-#           service:
-#             name: argocd-server
-#             port:
-#               number: 80
+---              
+
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-assets-ingress
+  namespace: argocd
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /assets
+        pathType: Prefix
+        backend:
+          service:
+            name: argocd-server
+            port:
+              number: 80
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: argocd-server
+            port:
+              number: 80
