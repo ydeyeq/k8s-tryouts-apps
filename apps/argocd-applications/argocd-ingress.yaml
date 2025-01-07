@@ -32,14 +32,14 @@ spec:
   rules:
   - http:
       paths:
-      - path: /assets
+      - path: /assets/
         pathType: Prefix
         backend:
           service:
             name: argocd-server
             port:
               number: 80
-      - path: /api
+      - path: /api/
         pathType: Prefix
         backend:
           service:
