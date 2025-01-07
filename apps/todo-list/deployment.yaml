@@ -45,14 +45,15 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: todo-list-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  # annotations:
+  #   nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
-  - http:
+  - host: todo-list.ydeyeq.duckdns.org
+    http:
       paths:
-      - path: /todo-list
+      - path: /
         pathType: Prefix
         backend:
           service:
