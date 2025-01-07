@@ -3,12 +3,10 @@ kind: Ingress
 metadata:
   name: argocd-ingress
   namespace: argocd
-  # annotations:
-  #   nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressClassName: nginx
   rules:
-  - http:
+  - host: argocd.ydeyeq.duckdns.org
+    http:
       paths:
       - path: /
         pathType: Prefix
@@ -17,6 +15,7 @@ spec:
             name: argocd-server
             port:
               number: 80
+
 
 
 # ---              
