@@ -41,25 +41,25 @@ spec:
 ---
 
 
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: todo-list-ingress
-  # annotations:
-  #   nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
-  ingressClassName: nginx
-  rules:
-  - host: todo-list.ydeyeq.duckdns.org
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: todo-list
-            port:
-              number: 80
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: todo-list-ingress
+#   # annotations:
+#   #   nginx.ingress.kubernetes.io/rewrite-target: /
+# spec:
+#   ingressClassName: nginx
+#   rules:
+#   - host: todo-list.ydeyeq.duckdns.org
+#     http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: todo-list
+#             port:
+#               number: 80
 
 
 # ---
