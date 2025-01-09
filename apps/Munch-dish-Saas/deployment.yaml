@@ -40,25 +40,26 @@ spec:
     targetPort: 3000
 
 
-# ---
+---
 
 
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: node-app-ingress
-#   annotations:
-#     nginx.ingress.kubernetes.io/rewrite-target: /
-# spec:
-#   ingressClassName: nginx
-#   rules:
-#   - http:
-#       paths:
-#       - path: /nodeapp
-#         pathType: Prefix
-#         backend:
-#           service:
-#             name: node-app
-#             port:
-#               number: 80
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: node-app-ingress
+  # annotations:
+  #   nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: node-app.ydeyeq.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: node-app
+            port:
+              number: 80
 
