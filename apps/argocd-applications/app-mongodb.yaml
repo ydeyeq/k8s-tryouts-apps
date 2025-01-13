@@ -17,7 +17,7 @@ spec:
         persistence:
           enabled: true
           size: 10Gi
-          storageClass: standard # Replace with your storage class
+          storageClass: do-block-storage 
   destination:
     server: https://kubernetes.default.svc
     namespace: powersync
