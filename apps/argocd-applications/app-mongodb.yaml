@@ -11,7 +11,7 @@ spec:
     chart: mongodb
     helm:
       values: |
-        architecture: standalone
+        architecture: replicaset
         auth:
           enabled: false # Disable authentication for testing (not recommended for production)
         persistence:
